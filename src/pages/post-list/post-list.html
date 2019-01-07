@@ -1,0 +1,40 @@
+<!--
+  Generated template for the PostListPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<!-- <ion-header>
+
+  <ion-navbar>
+    <ion-title>post-list</ion-title>
+  </ion-navbar>
+
+  <ion-item>
+      <ion-label>{{modename}}</ion-label>
+      <ion-toggle [(ngModel)]="mode" (click)="onChangeMode()"></ion-toggle>
+    </ion-item>
+
+</ion-header> -->
+
+
+<!-- <ion-content style="background-color: deepskyblue"> -->
+<ion-content style="background-image: linear-gradient(to right,#808080 0%,#e0e0e0 25%,#e0e0e0 75%,#808080 100%)">
+  <ion-segment #mediasegment color="danger" [(ngModel)]="currentSegment">
+    <ion-segment-button value="all">
+      Recent
+    </ion-segment-button>
+    <ion-segment-button value="followed">
+      Followed
+    </ion-segment-button>
+  </ion-segment>
+
+  <!-- <image-list></image-list> -->
+
+  <div [ngSwitch]="currentSegment">    
+    <post-list *ngSwitchCase="'all'" ngSelected="selected">
+    </post-list>
+    <post-list *ngSwitchCase="'followed'">
+    </post-list>
+  </div>
+</ion-content>

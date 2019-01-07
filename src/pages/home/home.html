@@ -1,0 +1,28 @@
+<!-- <ion-header>
+  <ion-navbar>
+    <ion-title>Home</ion-title>
+  </ion-navbar>
+</ion-header> -->
+
+<ion-content style="background-color: #f0f0f0">
+
+  <ion-segment #mediasegment color="danger" [(ngModel)]="currentSegment">
+    <ion-segment-button value="images">
+      <!-- Images<br/> -->
+      <ion-icon name="images"></ion-icon>
+    </ion-segment-button>
+    <ion-segment-button value="videos">
+      <!-- Videos<br/> -->
+      <ion-icon name="film"></ion-icon>
+    </ion-segment-button>
+  </ion-segment>
+
+
+  <div [ngSwitch]="currentSegment">
+    <image-list *ngSwitchCase="'images'" ngSelected="selected">
+    </image-list>
+    <video-list *ngSwitchCase="'videos'">
+    </video-list>
+    <!-- <post-list *ngSwitchCase="'videos'"></post-list> -->
+  </div>
+</ion-content>

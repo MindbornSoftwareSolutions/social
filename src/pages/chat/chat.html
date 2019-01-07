@@ -1,0 +1,57 @@
+<!--
+  Generated template for the ChatPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>{{personname}}</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+
+  <!-- <div *ngFor="let c of chats" style="padding: 4px; margin: 15px; width:90%" [style.textAlign]="c.other==1?'left':'right'">
+    <div style="padding: 10px; border-radius: 4px" [class.other]="c.other==1" [class.me]="c.other==0">
+      {{c.text}}
+    </div>
+  </div> -->
+
+  <div *ngFor="let c of chats">
+    <div style="width:90%; text-align: right" *ngIf="c.other==0">
+      <div style="background-color: lightblue; display: inline-block; margin: 4px; padding: 15px; border-radius: 10px; max-width:90%">
+        {{c.text}}
+      </div>
+    </div>
+    <div style="width:90%; text-align: left" *ngIf="c.other==1">
+      <div style="background-color: gray; display: inline-block; margin: 4px; padding: 15px; border-radius: 10px; max-width:90%">
+        {{c.text}}
+      </div>
+    </div>
+  </div>
+
+  <footer style="width:100%; margin: 0px; padding: 0px; position: sticky; bottom: 0px; background-color: white">
+    <div>
+      <table style="width:100%; border:3px solid gray; border-radius: 10px">
+        <tr>
+          <td>
+            <ion-item >
+              <!-- <ion-label floating>Type a message</ion-label> -->
+              <!-- <ion-input style="border: 1px solid gray; border-radius: 4px" ></ion-input> -->
+              <ion-input [(ngModel)]='message'></ion-input>
+            </ion-item>
+          </td>
+          <td>
+            <button ion-button (click)='onSend()' [disabled]='message.trim().length==0'>
+              Send <ion-icon  name="navigate" style="padding:2px; transform:rotate(90deg)"></ion-icon>
+            </button>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </footer>
+</ion-content>
